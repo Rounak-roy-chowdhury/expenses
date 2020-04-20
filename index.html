@@ -22,22 +22,42 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 10px solid black;
-            margin: 50px 25px 25px 50px;
+            margin: 25px 25px 25px 25px;
         }
     </style>
     <h1> This is my first project. Hope you like it.. </h1>
     <h3>This is a personal expense calculator. Just type in each expense and click on calculate.</h3>
+    <input type="text" id="Text" value="Expense description">
     <input type="number" id="myText">
-    <input type="button" onclick="myFunction()" value="Calculate">
-    <h3 id="ans">See the total here.</h3>
+    <input type="button" onclick="myFunction()" value="Calculate Expense">
+    <h3 id="details"></h3>
+    <h3 id="ans"></h3>
     <script>
+        const expenses = [];
         let z = 0;
 
+
         function myFunction() {
-            const y = document.getElementById("myText").value;
-            z = +z + +y;
-            document.getElementById("ans").innerHTML = z;
+            const exp = []
+            exp[0] = document.getElementById("Text").value;
+            exp[1] = document.getElementById("myText").value;
+            expenses.push(exp);
+
+            for (var i = (expenses.length - 1); i < expenses.length; i++) {
+                // document.getElementById("details").innerHTML += "Description : " + expenses[i](exp.description) + " and " + "Expense : " + expenses[i](exp.expense) + "<br >";
+                //document.getElementById("details").innerHTML = "value of i=" + i;
+                //document.getElementById("details").innerHTML += ${expenses[i]};
+                document.getElementById("details").innerHTML += "Description: " + expenses[i][0] + " & Expense: " + expenses[i][1] + "<br >";
+
+
+
+            }
+            z = +z + +exp[1];
+            document.getElementById("ans").innerHTML = "Total: " + z;
+
+
+
+
         }
     </script>
 </body>
